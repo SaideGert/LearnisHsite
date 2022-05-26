@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<style>
+    .blue {
+    color: #0776A0;
+    }
+    .date {
+    color: #FF5900;
+    }
+    .yel {
+    color: #FFC900;
+    }
+</style>
+<main>
+<h1 class="blue"><b>{{ res['title'] }}</b></h1>
+<h2 class="yel">{{ res['little'] }}</h2>
+    <h3><b>{{ res['text'] }}</b></h3>
+<h5 class="date">Date: {{ res['date'] }}</h5>
+</main>
+{% endblock %}

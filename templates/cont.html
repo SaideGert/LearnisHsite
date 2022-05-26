@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h2>
+Наши контакты:
+</h2>
+{% for i in res %}
+<a href="{{ i.split('::')[1] }}"><h3>{{ i.split('::')[0] }}</h3></a>
+{% endfor %}
+{% endblock %}
