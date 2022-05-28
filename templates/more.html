@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<style>
+  .black {
+  color: black;
+  }
+
+  .white {
+  color: white;
+  }
+  .pop {
+  color: #408AD2;
+  }
+  .big {
+  font-size: 35px;
+  }
+
+ .accordion-button:not(.collapsed) {
+ color: #FFF500;
+ }
+</style>
+<main class="px-3">
+<div class="accordion bg-dark" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class=" white big bg-dark accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Main information about LearnisH
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse bg-dark collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>LearnisH - </strong> this app is for learning languages. At the moment, out of only 5: English, German, Spanish, French and Italian. You. listening to the words, see them in front of you and memorize, later you have to pass the transition exam to go to the next level! Words become more difficult with each level!
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item bgb">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button bg-dark big white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        LearnisH news
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse bg-dark collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                  {% for el in range(len) %}
+                      {% if el == 0 %}
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <h5>{{ new[el]['title'] }}</h5>
+                            <p>{{ new[el]['little'] }}</p>
+                            <p>Date: {{ new[el]['date'] }}</p>
+                            <a href="/news/{{new[el]['id'].strip()}}" class="btn btn-outline-warning">Read full</a>
+                        </div>
+                      {% else %}
+                        <div class="carousel-item" data-bs-interval="10000">
+                            <h5>{{ new[el]['title'] }}</h5>
+                            <p>{{ new[el]['little'] }}</p>
+                            <p>Date: {{ new[el]['date'] }}</p>
+                            <a href="/news/{{ new[el]['id'] }}" class="btn btn-outline-warning">Read full</a>
+                        </div>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+              </button>
+            </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item bgb">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button big bg-dark white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Questions and answers
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse bg-dark collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div id="carouselExampleCaptions1" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                  {% for el in ask %}
+                  <h3><b>Question: {{ ask[0][0] }}</b></h3>
+                  <h3>Answer: {{ ask[0][1] }}</h3>
+                  {% endfor %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+              </button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+{% endblock %}
