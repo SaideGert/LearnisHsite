@@ -65,6 +65,7 @@ def more():
             ask1.append(paw)
             paw = []
     print(ask1)
+    print(new)
     return render_template('more.html', new=new, len=len(new), ask=ask1)
 
 
