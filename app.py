@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for
 from github import Github
 
 app = Flask(__name__)
-g = Github('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').get_user().get_repo('LearnisH')
+g = Github('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').get_user().get_repo('LearnisH')
 
 
 @app.route('/')
